@@ -9,5 +9,5 @@
   "githubRunner": "ubuntu-latest",
   "useCompilerFolder": true,
   "doNotPublishApps": true,
-  "artifact": "https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/25.0.23364.29001/base"
+  "artifact": "https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/25.0.23364.29001/w1"
 }
