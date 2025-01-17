@@ -11,7 +11,7 @@ permissions:
 
 defaults:
   run:
-    shell: powershell
+    shell: pwsh
 
 env:
   ALGoOrgSettings: ${{ vars.ALGoOrgSettings }}
@@ -19,7 +19,7 @@ env:
 
 jobs:
   DeployALDoc:
-    runs-on: [ windows-latest ]
+    runs-on: [ ubuntu-latest ]
     name: Deploy Reference Documentation
     environment:
       name: github-pages
@@ -30,22 +30,22 @@ jobs:
 
       - name: Initialize the workflow
         id: init
-        uses: microsoft/AL-Go/Actions/WorkflowInitialize@a46044fa1ffca4b1ff05d2d1844fd7d5922c6984
+        uses: microsoft/AL-Go/Actions/WorkflowInitialize@bdca9f401495268cb0548da3379efa0d2b4c85b2
         with:
-          shell: powershell
+          shell: pwsh
 
       - name: Read settings
-        uses: microsoft/AL-Go/Actions/ReadSettings@a46044fa1ffca4b1ff05d2d1844fd7d5922c6984
+        uses: microsoft/AL-Go/Actions/ReadSettings@bdca9f401495268cb0548da3379efa0d2b4c85b2
         with:
-          shell: powershell
+          shell: pwsh
 
       - name: Determine Deployment Environments
         id: DetermineDeploymentEnvironments
-        uses: microsoft/AL-Go/Actions/DetermineDeploymentEnvironments@a46044fa1ffca4b1ff05d2d1844fd7d5922c6984
+        uses: microsoft/AL-Go/Actions/DetermineDeploymentEnvironments@bdca9f401495268cb0548da3379efa0d2b4c85b2
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          shell: powershell
+          shell: pwsh
           getEnvironments: 'github-pages'
           type: 'Publish'
 
@@ -54,9 +54,9 @@ jobs:
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
 
       - name: Build Reference Documentation
-        uses: microsoft/AL-Go/Actions/BuildReferenceDocumentation@a46044fa1ffca4b1ff05d2d1844fd7d5922c6984
+        uses: microsoft/AL-Go/Actions/BuildReferenceDocumentation@bdca9f401495268cb0548da3379efa0d2b4c85b2
         with:
-          shell: powershell
+          shell: pwsh
           artifacts: 'latest'
 
       - name: Upload pages artifact
@@ -71,10 +71,10 @@ jobs:
 
       - name: Finalize the workflow
         if: always()
-        uses: microsoft/AL-Go/Actions/WorkflowPostProcess@a46044fa1ffca4b1ff05d2d1844fd7d5922c6984
+        uses: microsoft/AL-Go/Actions/WorkflowPostProcess@bdca9f401495268cb0548da3379efa0d2b4c85b2
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          shell: powershell
+          shell: pwsh
           telemetryScopeJson: ${{ steps.init.outputs.telemetryScopeJson }}
           currentJobContext: ${{ toJson(job) }}
