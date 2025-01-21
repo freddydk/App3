@@ -1,7 +1,7 @@
 {
   "type": "PTE",
-  "templateUrl": "https://github.com/microsoft/AL-Go-PTE@preview",
-  "templateSha": "764fc413d9ab5b31265377c8422a71163b464db6",
+  "templateUrl": "https://github.com/freddydk/AL-Go@partial",
+  "templateSha": "90a752ba9e7c258df92a92b84e533c52b33070e7",
   "DeployToPROD": {
     "ContinuousDeployment": false
   },
