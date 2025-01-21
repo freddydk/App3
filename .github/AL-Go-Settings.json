@@ -6,8 +6,6 @@
     "ContinuousDeployment": false
   },
   "runs-on": "ubuntu-latest",
-  "githubRunner": "ubuntu-latest",
-  "useCompilerFolder": true,
-  "doNotPublishApps": true,
+  "githubRunner": "windows-latest",
   "artifact": "https://bcartifacts-exdbf9fwegejdqak.b02.azurefd.net/sandbox/25.0.23364.29001/base"
 }
